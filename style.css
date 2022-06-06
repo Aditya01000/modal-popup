@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Poppins";
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #333;
+  min-height: 100vh;
+}
+.modal-container {
+  background: rgba(238, 238, 238, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  pointer-events: none;
+  transition: all 600ms ease-in-out;
+}
+.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal {
+  background: #222;
+  color: #fff;
+  width: 600px;
+  max-width: 80%;
+  transform: translateY(-200%);
+  transition: all 400ms ease-in-out;
+}
+.modal-container.show .modal {
+  transform: translateY(0%);
+}
+.modal-header {
+  padding: 1em 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+.modal .modal-body {
+  padding: 1em 1.5em;
+  font-size: 15px;
+  opacity: 0.8;
+}
