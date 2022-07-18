@@ -16,7 +16,7 @@ body {
 }
 
 .modal-container {
-  background: rgba(60, 42, 72, 0.2);
+  background: rgba(238, 238, 238, 0.5);
   position: fixed;
   left: 0;
   top: 0;
@@ -26,6 +26,7 @@ body {
   justify-content: center;
   align-items: center;
   opacity: 0;
+
   pointer-events: none;
   transition: all 600ms ease-in-out;
 }
@@ -35,72 +36,43 @@ body {
   pointer-events: all;
 }
 
-.modal-body {
-  transform: translateX(300%);
-  transition: all 400ms ease-in-out;
-}
-
-.modal-container.show .modal-body,
-.modal-container.show .modal-header {
-  transform: translateX(0%);
-}
-
-.modal-container.show .modal-header {
-  animation: title 500ms ease-in-out;
-}
-
 .modal {
   background: #222;
   color: #fff;
-  width: 700px;
+  width: 600px;
   max-width: 80%;
-  padding: 2.5em 1em;
-  border-radius: 7px;
-  box-shadow: rgba(100, 100, 111, 0.2) 2px 2px 10px 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-container .modal-header {
-  transform: translateX(-300%);
+  transform: translateY(-200%);
   transition: all 400ms ease-in-out;
 }
 
-@keyframes title {
-  0% {
-    transform: translateX(-170%);
-  }
-
-  50% {
-    transform: translateX(10%);
-  }
-
-  75% {
-    transform: translateX(-10%);
-  }
-
-  100% {
-    transform: translateX(0%);
-  }
+.modal-container.show .modal {
+  transform: translateY(0%);
 }
 
 .modal-header {
   padding: 1em 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
 }
 
 .modal-header .title {
-  text-align: center;
-  font-size: 3.25rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 1.7rem;
+  font-weight: bold;
 }
 
 .modal .modal-body {
-  display: flex;
-  justify-content: center;
   padding: 1em 1.5em;
   font-size: 15px;
   opacity: 0.8;

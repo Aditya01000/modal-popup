@@ -1,5 +1,6 @@
 "use strict";
-const openModalBtn = document.querySelector("[data-open-button]");
+const openModalBtn = document.querySelectorAll("[data-open-button]");
+const closeModalBtn = document.querySelector("[data-close-button]");
 const modalContainer = document.querySelector("[data-modal-container]");
 
 const closeModal = function () {
@@ -8,9 +9,14 @@ const closeModal = function () {
 const openModal = function () {
   modalContainer.classList.add("show");
 };
+for (let i = 0; i < openModalBtn.length; i++) {
+  openModalBtn[i].addEventListener("click", () => {
+    openModal();
+  });
+}
 
-openModalBtn.addEventListener("click", () => {
-  openModal();
+closeModalBtn.addEventListener("click", () => {
+  closeModal();
 });
 modalContainer.addEventListener("click", (e) => {
   if (e.target !== modalContainer) return;
